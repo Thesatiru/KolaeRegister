@@ -1,6 +1,8 @@
 package com.example.kolaeregister// Mantenha o seu pacote original aqui
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -40,5 +42,17 @@ class Home : AppCompatActivity() {
 
         // 4. Ligamos os dados usando o MESMO Adapter da primeira lista!
         rvMaisAvaliadas.adapter = QuadraAdapter(quadrasMaisAvaliadas)
+
+        val btnAvancar = findViewById<View>(R.id.btnAvancarFluxo)
+        btnAvancar.setOnClickListener {
+            val intent = Intent(this, Profile::class.java)
+            startActivity(intent)
+        }
+
+        val btnVoltar = findViewById<View>(R.id.btnVoltarFluxo)
+        btnVoltar.setOnClickListener {
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
+        }
     }
 }
